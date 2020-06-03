@@ -1,0 +1,21 @@
+ # docker image path in artifactory
+artifactoryPath: "wdfn"
+dockerImageName: "hello-world-spring-boot"
+repoPath: "orosz-usgs/hello-world-spring-boot.git"
+gitRepoUrl: "https://github.com/orosz-usgs/hello-world-spring-boot.git"
+gitRepoCredentialsId: "Jenkins-GitHub-Read-Write-Token"
+deployJobName: "hello-world-spring-boot-deploy"
+projectName: "iow-allgemein"
+memory: 512
+applicationName: "hello-world-spring-boot"
+# port that is exposed by your container
+containerPort: 8080
+# string parameter specifying a path that ALB should use to verify that your application is alive
+#healthCheck: "/api/greetings/about/health"
+configRepoPath: "wma/docker/wdfn/hello-world-spring-boot"
+configCredentialsId: "wma-eto-eb-rsa"
+urlRules:
+  - type: forward
+    conditions:
+      - "/api/greetings/*"
+    priority: 392

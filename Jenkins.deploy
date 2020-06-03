@@ -1,0 +1,16 @@
+@Library(value='iow-ecs-pipeline@IOW-498', changelog=false) _
+
+pipeline {
+    agent {
+        node {
+            label 'team:iow'
+        }
+    }
+    stages {
+        stage('build artifact') {
+            steps {
+                serviceDeployPipeline()
+            }
+        }
+    }
+}
